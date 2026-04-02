@@ -1,5 +1,28 @@
-const Overview = { template: '<div><h3>Job Overview</h3><p>This is the job overview page.</p></div>' }
+const jobsData = [];
 
-const routes = [
+const app = Vue.createApp({
+    data() {
+        return { jobs: [] };
+    },
+    methods: {
+        loadJobs() {
+            fetch("jobs.json")
+                .then(response => {
+                    if (response.ok) return response.json();
+                    throw new Error("Could not load jobs.json");
+                })
+                .then(data => {
+                    this.jobs = data;
+                    jobsData.push(...data);
+                })
+                .catch(error => console.error("Error loading job data:", error));
+        }
+    },
+    mounted() {
+        this.loadJobs();
+    }
+});
 
-]
+app.component('JobList', JobList);
+app.use(router);
+app.mount('#app');
