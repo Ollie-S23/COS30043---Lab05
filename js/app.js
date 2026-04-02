@@ -23,6 +23,6 @@ const app = Vue.createApp({
     }
 });
 
-app.component('JobList', JobList);
+app.component(JobList);
 app.use(router);
 app.mount('#app');
