@@ -19,3 +19,17 @@ main {
     flex: 1;
     padding: 1rem;
 }
+
+.testclasst {
+    background-color: white;
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.testclassp {
+    background-color: #f7c300;
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 4px;
+}
