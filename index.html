@@ -6,12 +6,8 @@
     <meta name="description" content="Event Information (Searchable Table)">
     <meta name="author" content="Oliver Scott">
     <title>Insight Hire</title>
-    <link rel="stylesheet" href="styles/styles.css">  <!-- Link to your custom CSS file -->
-    <script defer src="scripts/scripts.js"></script> <!-- Link to your custom JavaScript file -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"> <!-- Link to Bootstrap CSS -->
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script> <!-- Link to Bootstrap JS -->
-    <script src="js/vue.js"></script>
-    <script defer src="js/index.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -21,25 +17,32 @@
             </div>
         </div>
     </header>
-    
+
     <main>
-        <section class="container">
-            <div class="row">
-                <div class="col-4 grid-demo">
-                    <h2>Job Explorer</h2>
+        <div id="app">  <!-- Vue mounts here -->
+            <section class="container">
+                <div class="row">
+                    <div class="col-4 grid-demo">
+                        <h2>Job Explorer</h2>
+                    </div>
+                    <div class="col-8 grid-demo">
+                        <h2>Job Overview</h2>
+                        <div id="app">
+                            <p> 
+                                <router-link to="/job-overview">Overview</router-link>
+                            </p>
+                        </div>  
+                    </div>
                 </div>
-                <div class="col-8 grid-demo">
-                    <h2>Job Overview</h2>
+                <div class="row">
+                    <div class="col-7 grid-demo">
+                        <h2>To-Do List</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-7 grid-demo">
-                    <h2>To-Do List</h2>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
-    
+
     <footer>
         <div class="container">
             <div class="col-12">
@@ -47,5 +50,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scripts at bottom in load order -->
+    <bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.global.js"></script>
+    <script src="js/index.js"></script>
+    <script src="scripts/scripts.js"></script>
 </body>
 </html>
