@@ -15,6 +15,7 @@
             <div class="col-12">
                 <h1>Insight Hire</h1>
             </div>
+            <div class="headerbox"></div>
         </div>
     </header>
 
@@ -25,9 +26,9 @@
                     <div class="col-4 grid-demo">
                         <h2>Job Explorer</h2>
                         <div>
-                            <router-link to="/job-overview">Overview</router-link>
+                            <p><router-link to="/job-overview" class="centerItems">Overview</router-link></p>
                             <p v-for="job in jobs" :key="job.job_id">
-                                <router-link :to="'/job/' + job.job_id">{{ job.job_id }}</router-link>
+                                <router-link :to="'/job/' + job.job_id" class="centerItems">{{ job.job_id }}</router-link>
                             </p>
                         </div>
                     </div>
@@ -38,6 +39,11 @@
                 <div class="row">
                     <div class="col-7 grid-demo">
                         <h2>To-Do List</h2>
+                        <div class="row">
+                            <input type="text" class="col-9" id="tdItem" v-model="newItem" placeholder="Enter a task"> 
+                            <button class="btn btn-primary col-3" @click="addTask">Add Task</button>
+                        </div>
+                            <todo v-for="(t, i) in todos" :key="i" :item="t.item" :priority="t.priority" :toggle-priority="t.togglePriority" :index="i" @delete="deleteTaskHandler" @toggle="toggleTaskHandler"></todo>
                     </div>
                 </div>
             </section>
@@ -58,6 +64,7 @@
     <script src="js/components/JobOverview.js"></script>
     <script src="js/components/JobList.js"></script>
     <script src="js/components/JobDetail.js"></script>
+    <script src="js/components/todo.js"></script>
     <script src="js/router.js"></script>
     <script src="js/app.js"></script>
 </body>
