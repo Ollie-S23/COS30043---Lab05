@@ -19,8 +19,21 @@ const app = Vue.createApp({
         },
         addTask() {
             if (this.newItem.trim() !== "") {
-                this.todos.push({ item: this.newItem, priority: "Medium" });
+                this.todos.push({ item: this.newItem, priority: "Low Priority", togglePriority: "Mark as High Priority" });
                 this.newItem = "";
+            }
+        },
+        deleteTaskHandler(index) {
+            this.todos.splice(index, 1);
+        },
+        toggleTaskHandler(index) {
+            const t = this.todos[index];
+            if (t.priority === "Low Priority") {
+                t.priority = "High Priority";
+                t.togglePriority = "Mark as Low Priority";
+            } else {
+                t.priority = "Low Priority";
+                t.togglePriority = "Mark as High Priority";
             }
         }
     },

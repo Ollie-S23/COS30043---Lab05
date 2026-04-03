@@ -1,10 +1,19 @@
 const todo = {
-    props: ['item', 'priority'],
+    props: ['item', 'priority', 'togglePriority', 'index'],
+    emits: ['delete', 'toggle'],
+    methods: {
+        deleteTaskEmit() {
+            this.$emit('delete', this.index);
+        },
+        toggleTaskEmit() {
+            this.$emit('toggle', this.index);
+        }
+    },
     template: `
         <div class="row">
-            <p class="col-6 testclasst">{{item}}</p>
-            <p class="col-3 testclassp">({{priority}})</p>
-            <button class="btn btn-danger col-3">Delete</button>
+            <p class="col-6 testclasst">{{item}} ({{priority}})</p>
+            <button @click="toggleTaskEmit" class="col-3 testclassp centerItems">{{togglePriority}}</button>
+            <button @click="deleteTaskEmit" class="btn btn-danger col-3 centerItems">Delete</button>
         </div>
     `
 }
