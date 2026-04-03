@@ -1,6 +1,6 @@
 /* Helper style to visualise grid columns */
 .grid-demo {
-    background-color: #e7f1ff;
+    background-color: white;
     border: 1px solid #b6d4fe;
     padding: 12px;
     margin-bottom: 10px;
@@ -43,4 +43,16 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+.headerbox {
+    height: 60px; 
+    background: url('../styles/images/sky.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #b6d4fe;
+    margin-top: 10px;
+    border-radius: 4px;
 }
